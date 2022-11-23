@@ -1,7 +1,5 @@
 import pygame
-import time 
 import random 
-from pprint import pprint
 
 
 
@@ -62,7 +60,7 @@ class GameOfLIfe():
                         self.board[i][j] = 1
                         
                 # random life generation (makes the thing continuous )
-                if random.randint(0,1000) == 0:
+                if random.randint(0,25000) == 0:
                     self.board[i][j] = 1
 
                         
@@ -124,7 +122,7 @@ class GameOfLIfe():
         
         random_color = (random.random()*255, random.random()*255, random.random()*255)
         
-        
+        #random_color = (100,100,100)
         
         for i,row in enumerate(self.board):
             for j,life in enumerate(row):
@@ -144,8 +142,9 @@ class GameOfLIfe():
 def main():
     pygame.init()
     clock = pygame.time.Clock()
-    speed = 10
-    window = Window(400,800)
+    speed = .4
+    window = Window(800,1200)
+    # initial board of all zeros 
     board = [[0 for col in range(200)] for row in range(200) ]
     # board = [[1,1,1,1,1,1,1,1],
     #          [1,1,1,1,1,1,1,1],
