@@ -1,5 +1,6 @@
 import pygame
 import random 
+import numpy as np
 
 
 
@@ -142,19 +143,10 @@ class GameOfLIfe():
 def main():
     pygame.init()
     clock = pygame.time.Clock()
-    speed = .4
+    speed = 15
     window = Window(800,1200)
     # initial board of all zeros 
-    board = [[0 for col in range(200)] for row in range(200) ]
-    # board = [[1,1,1,1,1,1,1,1],
-    #          [1,1,1,1,1,1,1,1],
-    #          [1,1,1,1,1,1,1,1],
-    #          [1,1,1,1,1,1,1,1],
-    #          [0,0,0,0,0,0,0,0],
-    #          [0,0,0,0,0,0,0,0],
-    #          [0,0,0,0,0,0,0,0],
-    #          [0,0,0,0,0,0,0,0]
-    #         ]
+    board = np.zeros((200,200))
     game = GameOfLIfe(window,board,clock,speed)
     
     game.run_game_loop()
